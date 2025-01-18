@@ -1,5 +1,30 @@
 # Voidcast
 
-Voidcast gives me a way to cast my thoughts into the void, digitally.
+The Voidcast journal gives me a way to cast my thoughts into the void, digitally.
 
 This started as [a thought about building simply](https://bsky.app/profile/robertgroves.com/post/3lfyfduxyr22x), let's see where it leads.
+
+To avoid over-optimizing on simplicity—[see this note on that](https://bsky.app/profile/robertgroves.com/post/3lfyifie2nk2i)—I'll outline a set of minimal requirements below.
+
+# Requirements
+
+## 2025-01-17 - Initial Minimal Requirements
+
+- [ ] I should be the only one able to create a journal entry.
+- [ ] I should be able to quickly add a text-only journal entry via a simple web-based UI
+- [ ] All journal entries are to be publically visible.
+
+---
+
+# Dev Notes
+
+## Getting from 0 to deploy
+
+I'm going to add a simple html file and get things configured so that when I commit to the repo it also deploys my code up to the web server. To meet this goal, I do need to figure out where I'm hosting this and how I deploy... all while keeping it simple.
+
+### Slight complication this way comes
+
+My website [robertgroves.com](https://robertgroves.com) uses the Astro framework and is hosted up on Netlify. It isn't much right now, just has some Linkitty Links (my take on a linkinbio/linktree) up on it. I could have continued to use that to implement this Voidcast Journal, but that wouldn't have met [the challenge I laid out for myself](https://bsky.app/profile/robertgroves.com/post/3lfyfduxyr22x)—building simply from scratch. So I decided to just use a sub-domain, [void.robertgroves.com](https://void.robertgroves.com/), for this temporarily, instead of getting yet-another-domain-name™. To avoid getting another web hosting account I'm using a different shared hosting account I've had for a very long time that I just use for throwing various random acts of digital 💩 up on from time to time. I guess it could be considered cheating since this doesn't technically qualify as from scratch, but I'll make an exception here for two reasons:
+
+1. I'm not using any pre-existing framework/structure that exists up on that shared hosting server; I've configured an NS and A record on Netlify so that [void.robertgroves.com](https://void.robertgroves.com/) hits a newly created sub-domain on the shared hosting server. This effectively gives me a clean slate to work on.
+2. I'm making up the rules as I go and you can't stop me. 😉 (though I am trying to stay true to the spirit of the challenge)
