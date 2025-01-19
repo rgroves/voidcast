@@ -11,14 +11,21 @@ To avoid over-optimizing on simplicity—[see this note on that](https://bsky.ap
 ## 2025-01-17 - Initial Minimal Requirements
 
 - [x] I should be the only one able to create a journal entry.
-- [x] I should be able to quickly add a text-only journal entry via a simple web-based UI
-- [x] All journal entries are to be publically visible.
+- [x] I should be able to quickly add a text-only journal entry via a simple web-based UI.
+- [x] All journal entries are to be publicly visible.
+
+## 2025-01-19 - Requirements Round 2
+
+- [ ] Implement Post/Redirect/Get pattern to avoid resubmitting form on refresh of post page.
+- [ ] List entries in reverse chronological order.
+- [ ] I should be able to easily navigate back to the void page after creating an entry.
+- [ ] Make main Void Journal page and form look better.
 
 ---
 
 # Dev Notes
 
-## Getting from 0 to deploy
+## 2025-01-17 - Getting from 0 to deploy
 
 I'm going to add a simple html file and get things configured so that when I commit to the repo it also deploys my code up to the web server. To meet this goal, I do need to figure out where I'm hosting this and how I deploy... all while keeping it simple.
 
@@ -29,8 +36,30 @@ My website [robertgroves.com](https://robertgroves.com) uses the Astro framework
 1. I'm not using any pre-existing framework/structure that exists up on that shared hosting server; I've configured an NS and A record on Netlify so that [void.robertgroves.com](https://void.robertgroves.com/) hits a newly created sub-domain on the shared hosting server. This effectively gives me a clean slate to work on.
 2. I'm making up the rules as I go and you can't stop me. 😉 (though I am trying to stay true to the spirit of the challenge)
 
-### Deploying
+### 2025-01-18 - Deploying
 
 Originally I thought to use a GitHub Action to deploy the code to the web server, but I've decided to go simpler for now, so I'm creating a small deploy script that just performs a secure copy of the files to the web host from my local machine. Pro: I don't have to evaluate or create and configure a GitHub Action that can securely perform the transfer. Con: I'll need discipline to remember to deploy and only after committing the code (so the deployed state is always represented under version control).
 
 I just realized I'm on a new laptop that has never connected via ssh to the web server I'm using so a slight detour was taken to generate a new ssh key and configure it on the server. Ran an scp test just to be sure things were working as expected and deploying is now good to go.
+
+### 2025-01-19 - Rough Patches Showing After Initial Minimal Requirements Implementation
+
+After using the initial implementation for a bit some rough patches are immediately apparent.
+
+1. The appearance of the post form and the main void page have a lot of room for improvement.
+2. After posting if the page is refreshed, the double POST problem is present.
+3. After posting, the option to navigate to the main page should be there.
+4. It's probably better to have the entries in reverse-chronological order.
+
+## Metrics snapshot
+
+I think it will be good to track some metrics as I continue to use this. I expect to use these to determine when this outgrows the limitations of the initial implementation.
+
+### 2025-01-19 Snapshot
+
+- 10 total Void Journal entries
+- 3.8K Void Journal file size on server
+- 5.5 kB transferred
+- 5.3 kB resources
+- Finish: 276 ms
+- DOMContentLoaded: 281 ms
