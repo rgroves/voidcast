@@ -10,9 +10,9 @@ To avoid over-optimizing on simplicity—[see this note on that](https://bsky.ap
 
 ## 2025-01-17 - Initial Minimal Requirements
 
-- [ ] I should be the only one able to create a journal entry.
-- [ ] I should be able to quickly add a text-only journal entry via a simple web-based UI
-- [ ] All journal entries are to be publically visible.
+- [x] I should be the only one able to create a journal entry.
+- [x] I should be able to quickly add a text-only journal entry via a simple web-based UI
+- [x] All journal entries are to be publically visible.
 
 ---
 
