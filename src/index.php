@@ -1,19 +1,22 @@
 <?php
-  $journal_file = $_SERVER["CONTEXT_DOCUMENT_ROOT"] . "/../../voidcast-journal.json";
+  $journal_file = $_SERVER['CONTEXT_DOCUMENT_ROOT'] . '/../../voidcast-journal.json';
   $journal_json_data = file_get_contents($journal_file);
 
-  if ($journal_json_data === false) {
+  if (!$journal_json_data) {
     error_log("Error: Unable to read the journal file at {$journal_file}. Error: " . error_get_last()['message']);
-    echo "An error occurred while attempting to read the journal file.";
-    exit;
+    $journal_data = [];
   }
 
-  $journal_data = array_map('json_decode', explode("\n", trim($journal_json_data)));
+  $journal_data = array_map('json_decode', explode('\n', trim($journal_json_data)));
+
   if (json_last_error() !== JSON_ERROR_NONE) {
-    error_log("Error: Failed to decode JSON data. Error: " . json_last_error_msg());
-    echo "An error occurred while decoding the journal data.";
-    exit;
+    error_log('Error: Failed to decode JSON data. Error: ' . json_last_error_msg());
+    $journal_data = [];
   }
+
+  $filtered_journal_data = array_filter($journal_data, function ($entry) {
+    return isset($entry->title, $entry->date, $entry->content);
+  });
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -60,4 +63,4 @@
       </article>
     </main>
   </body>
-  </html>
+</html>
