@@ -51,6 +51,10 @@ After using the initial implementation for a bit some rough patches are immediat
 3. After posting, the option to navigate to the main page should be there.
 4. It's probably better to have the entries in reverse-chronological order.
 
+### 2025-01-19 - Development Server
+
+I was developing on my live server to start, but now that minimal functionality is in place and it's being used it feels kind of icky (even if it is just me using it). So I'm going to add a Dockerfile and docker-compose.yml file to develop and test locally in a container before deploying changes to the live server.
+
 ## Metrics snapshot
 
 I think it will be good to track some metrics as I continue to use this. I expect to use these to determine when this outgrows the limitations of the initial implementation.
