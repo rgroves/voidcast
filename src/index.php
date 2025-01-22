@@ -14,6 +14,9 @@
       error_log('Error: Failed to decode JSON data. Error: ' . json_last_error_msg());
       $journal_data = [];
     }
+
+    // Sort the journal entries by date in descending order
+    usort($journal_data, fn ($a, $b) => $a->date > $b->date ? -1 : ($a->date < $b->date ? 1 : 0));
   }
 ?>
 <!DOCTYPE html>

@@ -17,7 +17,7 @@ To avoid over-optimizing on simplicity—[see this note on that](https://bsky.ap
 ## 2025-01-19 - Requirements Round 2
 
 - [x] Implement Post/Redirect/Get pattern to avoid resubmitting form on refresh of post page.
-- [ ] List entries in reverse chronological order.
+- [x] List entries in reverse chronological order.
 - [x] I should be able to easily navigate back to the void page after creating an entry.
 - [ ] Make main Void Journal page and form look better.
 
