@@ -1,4 +1,5 @@
 <?php
+  const $STATUS_FAILURE = "FAILURE";
   $journal_file = $_SERVER["CONTEXT_DOCUMENT_ROOT"] . "/../../voidcast-journal.json";
 
   function handle_post_data(): array {
@@ -24,7 +25,6 @@
   }
 
   if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $status = "FAILURE";
     ["title" => $title, "content" => $content, "errors" => $errors] = handle_post_data();
 
     if (count($errors) === 0) {
@@ -37,9 +37,10 @@
         ];
         $json = json_encode($entry);
         file_put_contents($journal_file, $json . PHP_EOL, FILE_APPEND);
-        $status = "SUCCESS";
+        # Redirect to created page (PRG pattern)
+        header("Location: /post/created.php");
       } catch (Exception $e) {
-        $errors[$status] = $e->getMessage();
+        $errors[$STATUS_FAILURE] = $e->getMessage();
       }
     }
   } else {
@@ -47,7 +48,6 @@
     $content = null;
     $errors = [];
     $entry = [];
-    $status = null;
   }
 ?>
 <!DOCTYPE html>
@@ -76,24 +76,12 @@
         <?php echo $errors["content"]; ?>
       </span>
     <?php } ?>
-    <button type="submit">Send</button>
-    <?php if (isset($errors["FAILURE"])) { ?>
+    <button type="submit">Cast Into The Void</button>
+    <?php if (isset($errors[STATUS_FAILURE])) { ?>
       <span class="error" aria-live="polite">
-        <?php echo $errors["FAILURE"]; ?>
-      </span>
-    <?php } elseif ($status === "SUCCESS") { ?>
-      <span class="success" aria-live="polite">
-        Entry created!
+        <?php echo $errors[STATUS_FAILURE]; ?>
       </span>
     <?php } ?>
   </form>
-  <?php
-    if ($status === "SUCCESS") {
-      echo "<h2>Journal Entry Created</h2>";
-      echo "<p><strong>Title:</strong> ".$entry['title']."</p>";
-      echo "<p><strong>Content:</strong>".$entry['content']."</p>";
-      echo "<p><strong>Date:</strong>".$entry['date']."</p>";
-    }
-  ?>
 </body>
 </html>

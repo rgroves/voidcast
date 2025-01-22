@@ -19,10 +19,6 @@
     margin-top: 1rem;
   }
 
-  .success::before {
-    content: "✅ ";
-  }
-
   .error {
     color: red;
     font-weight: bold;
