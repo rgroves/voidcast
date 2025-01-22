@@ -1,5 +1,5 @@
 <?php
-  const $STATUS_FAILURE = "FAILURE";
+  const STATUS_FAILURE = "FAILURE";
   $journal_file = $_SERVER["CONTEXT_DOCUMENT_ROOT"] . "/../../voidcast-journal.json";
 
   function handle_post_data(): array {
