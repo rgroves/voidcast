@@ -2,7 +2,8 @@
 
 ## Code Gardening
 
-- 2025-01-21 - [maint] Consider splitting page boilerplate into reusable pieces or using a templating/layout engine?
+- 2025-01-21 - Consider splitting page boilerplate into reusable pieces or using a templating/layout engine?
+- 2025-01-23 - Need smarter deploy - currently scp copies over more than it needs to
 
 ## Features
 
@@ -12,4 +13,4 @@
 
 ## Security
 
-- 2025-01-21 - [security] Need to implement CSRF protection in post form.
+- 2025-01-21 - Need to implement CSRF protection in post form.
