@@ -1,3 +1,10 @@
+main {
+  margin: 0 auto;
+  padding: 1rem;
+  min-width: 45ch;
+  max-width: 65ch;
+}
+
 #postform {
   display: flex;
   flex-direction: column;
@@ -8,14 +15,13 @@
     margin-top: 1rem;
   }
 
-  button {
-    width: max-content;
-    margin-top: 1rem;
+  textarea {
+    min-height: 50dvh;
+    max-height: 80dvh;
   }
 
-  .success {
-    color: green;
-    font-weight: bold;
+  button {
+    width: max-content;
     margin-top: 1rem;
   }
 

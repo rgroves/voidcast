@@ -60,28 +60,30 @@
   <link rel="stylesheet" href="./post.css">
 </head>
 <body>
-  <h1>Voidcast Journal - Create Entry</h1>
-  <form id="postform" action="/post/" method="post">
-    <label for="title">Title</label>
-    <input type="text" name="title" id="title" type="text">
-    <?php if (isset($errors["title"])) { ?>
-      <span class="error" aria-live="polite">
-        <?php echo $errors["title"]; ?>
-      </span>
-    <?php } ?>
-    <label for="content">Content</label>
-    <textarea name="content" id="content" required></textarea>
-    <?php if (isset($errors["content"])) { ?>
-      <span class="error" aria-live="polite">
-        <?php echo $errors["content"]; ?>
-      </span>
-    <?php } ?>
-    <button type="submit">Cast Into The Void</button>
-    <?php if (isset($errors[STATUS_FAILURE])) { ?>
-      <span class="error" aria-live="polite">
-        <?php echo $errors[STATUS_FAILURE]; ?>
-      </span>
-    <?php } ?>
-  </form>
+  <main>
+    <h1>Voidcast Journal - Create Entry</h1>
+    <form id="postform" action="/post/" method="post">
+      <label for="title">Title</label>
+      <input type="text" name="title" id="title" type="text">
+      <?php if (isset($errors["title"])) { ?>
+        <span class="error" aria-live="polite">
+          <?php echo $errors["title"]; ?>
+        </span>
+      <?php } ?>
+      <label for="content">Content</label>
+      <textarea name="content" id="content" required></textarea>
+      <?php if (isset($errors["content"])) { ?>
+        <span class="error" aria-live="polite">
+          <?php echo $errors["content"]; ?>
+        </span>
+      <?php } ?>
+      <button type="submit">Cast Into The Void</button>
+      <?php if (isset($errors[STATUS_FAILURE])) { ?>
+        <span class="error" aria-live="polite">
+          <?php echo $errors[STATUS_FAILURE]; ?>
+        </span>
+      <?php } ?>
+    </form>
+  </main>
 </body>
 </html>
