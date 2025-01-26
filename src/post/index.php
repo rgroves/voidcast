@@ -57,7 +57,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow" />
   <title>Cast Into The Void</title>
-  <link rel="stylesheet" href="./post.css">
+  <link rel="stylesheet" href="./post.css" />
 </head>
 <body>
   <main>
