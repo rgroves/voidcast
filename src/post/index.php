@@ -57,11 +57,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow" />
   <title>Cast Into The Void</title>
+  <link rel="stylesheet" href="../type.css" />
   <link rel="stylesheet" href="./post.css" />
 </head>
 <body>
   <main>
-    <h1>Voidcast Journal - Create Entry</h1>
+    <h1>Voidcast Journal</h1>
+    <h2>Create Entry</h2>
     <form id="postform" action="/post/" method="post">
       <label for="title">Title</label>
       <input type="text" name="title" id="title" type="text">

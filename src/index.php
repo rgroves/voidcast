@@ -26,6 +26,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Voidcast Journal - Random thoughts & moments cast into the digital void">
     <title>The Voidcast Journal of Robert Groves</title>
+    <link rel="stylesheet" href="type.css">
+    <link rel="stylesheet" href="main.css">
   </head>
   <body>
     <main>
@@ -45,7 +47,6 @@
               error_log("Error: Invalid date format for entry '{$entry->title}'. Error: " . $e->getMessage());
             }
 ?>
-
           </header>
           <p><?= nl2br(htmlspecialchars($entry->content, ENT_QUOTES, 'UTF-8')); ?></p>
         </article>
